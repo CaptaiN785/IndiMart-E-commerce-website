@@ -1,0 +1,176 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background-image:url("Images/bg.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    overflow: hidden;
+}
+/*Progress div is here*/
+.step-row{
+    margin:2% auto;
+    background-color: white;
+    display: flex;
+    height:40px;
+}
+.step-cols{
+    font-size:18px;
+    width:33%;
+    text-align:center;
+    padding:10px 0px;
+    position:relative;
+}
+#progress{
+    position: absolute;
+    height:40px;
+    width:33%;
+    background-image: linear-gradient(90deg, rgb(127, 127, 184), rgb(54, 11, 155));
+    transition: 500ms;
+}
+#progress::after{
+    content:'';
+    width:0px;
+    height:0px;
+    border-top:20px solid transparent;
+    border-bottom:20px solid transparent;
+    position:absolute;
+    right:-20px;
+    top:0px;
+    border-left:20px solid rgb(54, 11, 155);
+}
+
+
+
+
+
+/*   main div starts from here          */
+.main{
+    width:650px;
+    height:550px;
+    text-align:center;
+    background-color: white;
+    margin:2% auto;
+    position:relative;
+    overflow: hidden;
+}
+.main a{
+    text-decoration:none;
+    font-size:18px;
+    margin: 10px 0px;
+    position: absolute;
+    bottom:10px;
+    left:32%;
+    background-color: blue;
+    color:white;
+    padding:5px 20px;
+}
+.main .form{
+    width:320px;
+    position:absolute;
+    left:40px;
+    transition:500ms;
+}
+.main .form h2{
+    margin:20px 0;
+    width:570px;
+}
+.main .form input{
+    font-size:16px;
+    width:100%;
+    margin:10px 0;
+    padding:3px 5px;
+    border:none;
+    outline:none;
+    background: none;
+    border-bottom: 1px solid rgb(3, 3, 78);
+}
+.main .form input[type = "date"]{
+    width:83.5%;
+}
+.main .form textarea{
+    outline:none;
+    background:none;
+    width:320px;
+    margin-top:20px;
+    font-size:15px;
+    padding:3px 5px;
+}
+.btn-box{
+    width:570px;
+    margin-top: 50px;
+}
+.btn-box button{
+    font-size:18px;
+    margin:0 20px;
+    padding:10px 50px;
+    outline:none;
+    border:none;
+    border-radius:50px;
+    color:white;
+    background-image: linear-gradient(90deg, rgb(127, 127, 184), rgb(54, 11, 155));
+}
+.btn-box button:hover{
+    background-color: white;
+    opacity: 70%;
+}
+.Image{
+    width:120px;
+    height:140px;
+    border:1px solid black;
+    left:400px;
+    position:absolute;
+    top:120px;
+    text-align:center;
+    overflow: hidden;
+    display:flex;
+}
+.Image label{
+    cursor:pointer;
+    bottom:0;
+    position: absolute;
+}
+#pImage{
+    width:200%;
+    height:200%;
+    margin-left:0px;
+    cursor: pointer;
+}
+#pImage::-webkit-file-upload-button{
+    visibility:hidden;
+    width:200px;
+}
+#sImage{
+    width:200%;
+    height:200%;
+    margin-left:0;
+    cursor: pointer;
+}
+#sImage::-webkit-file-upload-button{
+    visibility:hidden;
+    width:200%;
+}
+.change{
+    display: none;
+    padding:5px 32px;
+    background-color: forestgreen;
+    color:white;
+    position:absolute;
+    bottom:10;
+    width:100%;
+    text-align: center;
+}
+/** Image processing*/
+
+
+
+/*   Shop Details   */
+
+#form2{
+    left:670px;
+}
+#form3{
+    width:570px;
+    left:670px;
+}

@@ -1,0 +1,46 @@
+.items{
+    background-color: white;
+    width:95%;
+    height:max-content;
+    padding:20px;
+    margin-bottom:20px;
+    font-family: cambria;
+    border-radius:10px;
+    transition: 0.5s;
+}
+.items:hover{
+    background-color:rgb(127, 127, 184);
+    color:white;
+}
+.items:hover a, .Items:hover #edit{
+    border:1px solid white;
+}
+.Image{
+    float:left;
+    margin-right:20px;
+    width:100px;
+    height:100px;
+    border:1px solid blue;
+}
+.items p{
+    font-family:cambria;
+    padding:5px;
+    display:block;
+}
+.operation{
+    display:flex;
+    justify-content: flex-end;
+}
+.operation a{
+    text-decoration:none;
+    background-color:red;
+    padding:10px 40px;
+    margin:0 9px;
+    color:white;
+    font-weight:bold;
+    border:1px solid red;
+}
+#edit{
+    border:1px solid green;
+    background-color: green;
+}

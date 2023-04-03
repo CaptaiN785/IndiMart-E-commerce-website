@@ -1,0 +1,92 @@
+create database onlineshop;
+
+create table users(
+    id int primary key auto_increment,
+    joiningDate datetime, 
+    name varchar(30),
+    mobile int,
+    email varchar(30),
+    dob varchar(10),
+    personalAddress varchar(200),
+    shopName varchar(30),
+    gstNo varchar(30),
+    shopCategory varchar(30),
+    yoe int,
+    shopAddress varchar(200),
+    aadhar varchar(12),
+    pan varchar(15),
+    accno varchar(30),
+    ifsc varchar(11),
+    upi varchar(30),
+    profilePhoto longblob,
+    shopPhoto longblob,
+    password varchar(255)
+    );
+
+create table product(
+    PID int primary key auto_increment,
+    addedOn datetime,
+    name varchar(200),
+    category varchar(50),
+    subCategory varchar(50),
+    price int,
+    discount int,
+    description varchar(300),
+    availablity int,
+    viewed int,
+    hide int,
+    sellerId int,
+    image longblob
+);
+
+create table offer(
+    OID int primary key auto_increment,
+    sellerId int,
+    name varchar(200),
+    price int,
+    discount int,
+    startDate datetime,
+    lastDate datetime,
+    about varchar(300),
+    image longblob,
+    visible int, 
+    availablity int
+);
+alter table offer auto_increment = 1000000;
+
+create table customer(
+    cid int primary key auto_increment,
+    name varchar(100),
+    email varchar(50),
+    mobile varchar(10),
+    address varchar(255),
+    password varchar(50),
+    joinedOn datetime,
+    image longblob
+);
+
+create table cart(
+    cid int,
+    pid int,
+    oid int,
+    addedOn datetime,
+    quantity int
+);
+
+create table orders(
+    orderId int primary key auto_increment,
+    orderDate datetime, 
+    cid int,
+    oid int,
+    oidQnt int,
+    pid int,
+    pidQnt int,
+    payment int,
+    amount int,
+    name varchar(30),
+    mobile varchar(10),
+    address varchar(200)
+);
+alter table orders auto_increment = 1000;
+
+

@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>
+            User Registration
+        </title>
+        <link rel = "stylesheet" href = "userRegistration.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class = "step-row">
+            <div id = "progress"></div>          
+            <div class = "step-cols" style = "color:white;" >Personal Details</div>
+            <div class = "step-cols" id = "col2" >Shop Details</div>
+            <div class = "step-cols" id = "col3" >Documentation Details</div>
+        </div>
+        <div class = "main">
+            
+            <form autocomplete="off" action = "userRegistration.php" method="post" enctype="multipart/form-data">
+            <div class = "form" id = "form1">
+                <h2>Personal Details<hr></h2>
+                <input type = "text" name = "name" placeholder="Enter Your Name" required maxlength="30">
+                <input type = "text" name = "mobile" placeholder="Mobile Number" required maxlength="10">
+                <input type = "email" name = "email" placeholder="Email" required>
+                DOB : <input type = "date" name = "dob" placeholder = "DOB" required>
+                <textarea type = "textarea" name = "personalAddress" required placeholder="Your Permanent Address" rows="3" id = "personalAddress" onblur = "checkComma()"></textarea>
+                <div class = "btn-box">
+                    <button type = "button" onclick = "nextShop()">Next</button>
+                </div>
+                <div Class = "Image">
+                    <input type = "file" name = "profileImage" id = "pImage" accept = "Image/*" onchange="previewProfile()">
+                    <label for = "pImage" id = "pImageLabel"><img src = "Images/avatar.png" width = "100" height = "90">Select Profile Photo</label>
+                    <img for = "pImage" id = "pImageImg" style = "display:none;width:100%;height:100%;position:absolute;top:10px;">
+                    <label for ="pImage" id = "Pchange" class = "change">Change</label>
+                </div>
+            </div>
+            <div class = "form" id = "form2">
+                <h2>Shop Details<hr></h2>
+                <input type = "text" name = "shopName" placeholder="Enter Shop Name" required maxlength="30">
+                <input type = "text" name = "gst" placeholder="GST Number" required >
+                <input type = "text" name = "shopCategory" placeholder="Shop Category" required >
+                <input type = "number" name = "yoe" placeholder="Year of establishment" required >
+                <textarea type = "textarea" name = "shopAddress" required placeholder="Your Shop Address" rows="3" cols = "50" id = "shopAddress" onblur = "checkComma()"></textarea>
+                <div class = "btn-box">
+                    <button type = "button" onclick = "backPersonel()">Back</button>
+                    <button type = "button" onclick = "nextDocument()">Next</button>
+                </div>
+                <div class = "Image">
+                    <input type = "file" name = "shopImage" id = "sImage" accept = "Image/*" onchange="previewShop()">
+                    <label for = "sImage" id = "sImageLabel"><img src = "Images/imageIcon.png" width = "100" height = "90">Select Shop's Photo</label>
+                    <img for = "sImageImg" id = "sImageImg" style = "display:none;width:100%;height:100%;position:absolute;top:10px;">
+                    <label for ="sImage" id = "Schange" class = "change">Change</label>
+                </div>
+            </div>
+            <div class = "form" id = "form3">
+                <h2>Documentation<hr></h2>
+                <input type = "text" name = "aadhar" placeholder="Enter Aadhar Number" required maxlength="12">
+                <input type = "text" name = "pan" placeholder="PAN Number" required >
+                <input type = "text" name = "accno" placeholder="Account Number" required >
+                <input type = "text" name = "ifsc" placeholder="IFSC Code" required >
+                <input type = "text" name = "upi" placeholder="UPI ID" required >
+                <input type = "password" id = "pass1" placeholder="Enter password" required onblur="passMatch()">
+                <input type = "text" id = "pass2" name = "password" placeholder="Confirm password" required onblur="passMatch()">
+                <label id = "passError" style = "display:none;color:red;">* Password didn't match</label>
+                 <div class = "btn-box">
+                    <button type = "button" onclick = "backShop()">Back</button>
+                    <button type = "submit" id = "submit">Submit</button>
+                </div>
+            </div>
+            </form>
+            <a href = "login.php" target="_self">Already registered login  <i class = "fa fa-arrow-right"></i></a>
+        </div>
+        <script>
+            function passMatch(){
+                var pass1 = document.getElementById("pass1").value;
+                var pass2 = document.getElementById("pass2").value;
+                if(pass1 != pass2){
+                    document.getElementById("passError").style.display = "flex";   
+                    document.getElementById("submit").style.display = "none";   
+
+                }
+                else{
+                    document.getElementById("passError").style.display = "none";
+                    document.getElementById("submit").style.display = "inline";
+                }
+            }
+            function checkComma(){
+                var pAdd = document.getElementById("personalAddress").value;
+                var Add = "";
+                for(var i=0; i<pAdd.length; i++){
+                    if(pAdd[i] == ',' || pAdd[i] == '+' || pAdd[i] == '*'){
+                        Add = Add + " ";
+                    }else{
+                        Add = Add + pAdd[i];
+                    }
+                }
+                document.getElementById("personalAddress").value = Add;
+
+                var sAdd = document.getElementById("shopAddress").value;
+                var add = "";
+                for(var i=0; i<sAdd.length; i++){
+                    if(sAdd[i] == ',' || sAdd[i] == '+' || sAdd[i] == '*'){
+                        add = add + " ";
+                    }else{
+                        add = add + sAdd[i];
+                    }
+                }
+                document.getElementById("shopAddress").value = add;
+            }
+            function nextShop(){
+                document.getElementById("form1").style.left = "-670px";
+                document.getElementById("form2").style.left = "40px";
+                document.getElementById("progress").style.width = "66%";
+                document.getElementById("col2").style.color = "white";
+            }
+            function backPersonel(){
+                document.getElementById("form1").style.left = "40px";
+                document.getElementById("form2").style.left = "670px";
+                document.getElementById("progress").style.width = "33%";
+                document.getElementById("col2").style.color = "black";
+            }
+            function nextDocument(){
+                document.getElementById("form2").style.left = "-670px";
+                document.getElementById("form3").style.left = "40px";
+                document.getElementById("progress").style.width = "100%";
+                document.getElementById("col3").style.color = "white";
+            }
+            function backShop(){
+                document.getElementById("form2").style.left = "40px";
+                document.getElementById("form3").style.left = "670px";
+                document.getElementById("progress").style.width = "66%";
+                document.getElementById("col3").style.color = "black";
+            }
+            function previewProfile(){
+                var file = document.getElementById("pImage").files;
+                if(file.length>0){
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(event){
+                        document.getElementById("pImageImg").setAttribute("src", event.target.result);
+                    };
+                    fileReader.readAsDataURL(file[0]);
+                    document.getElementById("pImageLabel").style.display = "none";
+                    document.getElementById("pImageImg").style.display = "flex";
+                    document.getElementById("Pchange").style.display = "flex";
+                }
+            }
+            function previewShop(){
+                var file = document.getElementById("sImage").files;
+                if(file.length > 0){
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(event){
+                        document.getElementById("sImageImg").setAttribute("src", event.target.result);
+                    };
+                    fileReader.readAsDataURL(file[0]);
+                    document.getElementById("sImageLabel").style.display = "none";
+                    document.getElementById("sImageImg").style.display = "flex";
+                    document.getElementById("Schange").style.display = "flex";
+                }
+            }
+        </script>
+    </body>
+</html>

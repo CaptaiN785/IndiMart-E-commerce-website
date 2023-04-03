@@ -1,0 +1,100 @@
+
+.profile{
+    width:100%;
+    height:100%;
+    font-family: cambria;
+    font-size:20px;
+}
+.profile h2{
+    text-align:center;
+    margin:5px;
+}
+.profile input{
+    font-size: 16px;
+    width:60%;
+    outline:none;
+    border-width: 0px 0px 1px 0px;
+    background:none;
+    padding:3px 5px;
+    margin:10px;
+    font-family: cambria;
+    font-size:20px;
+    border-color:green;
+}
+.profile textarea{
+    background: none;
+    outline:none;
+    margin:10px;
+    padding:3px 5px;
+    width:55%;
+    font-size: 16px;
+    font-family: cambria;
+    margin-left:80px;
+}
+.profile input:read-only{
+    border-width:0px 0px 0px 0px;
+}
+.profile .Image{
+    float:right;
+    right: 180px;
+    margin-top:20px;
+    width:150px;
+    height:180px;
+    border:1px solid black;
+}
+
+.profile .Image label{
+    text-align:center;
+    margin-top:10px;
+    bottom:-50px;
+    width:70px;
+    border-radius:8px;
+    color:white;
+    padding:10px 40px;
+    cursor:pointer;
+    background-color: rgb(55, 55, 168);
+}
+#updateDetails{
+    margin:50px 0;
+    width:100%;
+    text-align:center;
+    padding:10px 0;
+}
+#updateDetails button{
+    padding:10px 50px;
+    border-radius:50px;
+    outline:none;
+    border:none;
+    background-image: linear-gradient(90deg, rgb(127, 127, 184), rgb(54, 11, 155));
+    color:white;
+    margin:0 30px;
+    font-size:20px;
+    font-family: cambria;
+}
+#updateDetails button:hover{
+    background-color: white;
+    opacity: 80%;
+}
+#submitDetails{
+    display:none;
+    margin:50px 0;
+    width:100%;
+    text-align:center;
+    padding:10px 0;   
+}
+#submitDetails button, #submitDetails input{
+    padding:10px 50px;
+    border-radius:50px;
+    outline:none;
+    width:max-content;
+    border:none;
+    background-image: linear-gradient(90deg, rgb(127, 127, 184), rgb(54, 11, 155));
+    color:white;
+    margin:0 30px;
+    font-size:20px;
+    font-family: cambria;
+}
+#submitDetails button:hover, #submitDetails input:hover{
+    background-color: white;
+    opacity: 80%;
+}
